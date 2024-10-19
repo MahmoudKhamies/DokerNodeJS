@@ -68,17 +68,17 @@ volumes:
   #6 above "default.config" file should be exist in nginx path "/etc/nginx/conf.d/default.conf"
   #7 above step will be done using volumes in compose file for nginx
 # docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d -build
-# above compose will create volume for  mangodb with name  AppName+'_'+volumeNme [my-express-app_mongo-db]
-# above compose will create network for both node,mangodb with name AppName+'_'+'default'
+  - above compose will create volume for  mangodb with name  AppName+'_'+volumeNme [my-express-app_mongo-db]
+  - above compose will create network for both node,mangodb with name AppName+'_'+'default'
 # docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
 # docker-compose ps
 # docker logs express-node-app-container -f  [explore mangodb logs like started or not ....]
 # connect mango db
-  # docker exec-it my-express-app_nongo_1 bash
-  # mango -u root -p example
-    # or 
-  # docker exec-it my-express-app_nongo_1 mango -u root -p example
-  # show dbs;
-  # use dbName; [use testDB]
-  # db.books.insert({title: "book 1"})
-  # db.books.find()
+  - docker exec-it my-express-app_nongo_1 bash
+  - mango -u root -p example
+    - or 
+  - docker exec-it my-express-app_nongo_1 mango -u root -p example
+  - show dbs;
+  - use dbName; [use testDB]
+  - db.books.insert({title: "book 1"})
+  - db.books.find()
